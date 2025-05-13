@@ -1,0 +1,10 @@
+|--------|-------|----------|
+| name   |   age | city     |
+|--------|-------|----------|
+| Pier   |    40 | Paris    |
+| John   |    25 | New York |
+| Sara   |    45 | London   |
+| Mary   |    30 | Paris    |
+| Bob    |    35 | London   |
+| Mike   |    50 | London   |
+|--------|-------|----------|
