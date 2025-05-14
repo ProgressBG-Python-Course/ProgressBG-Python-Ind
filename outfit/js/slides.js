@@ -53,7 +53,7 @@ function  PrettyPreCodeOld(){
 }
 
 function applyBackgrounds() {
-    const bgPath = '/ProgressBG-Python-Slides/outfit/images/for_slides/'
+    const bgPath = '/ProgressBG-Python-Ind/outfit/images/for_slides/'
     const mappings = {
         'presentation-title': bgPath+'presentation_title_slide_bg.png',
         'copyright': bgPath+'green_slide_bg.png',
