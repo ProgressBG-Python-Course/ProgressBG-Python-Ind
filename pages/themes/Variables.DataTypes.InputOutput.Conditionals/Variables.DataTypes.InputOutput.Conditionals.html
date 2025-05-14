@@ -50,7 +50,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>___PresentationTitle___</h1></section>
+<section><h1>Variables. Data Types. Input Output. Conditionals.</h1></section>
 <section data-transition="zoom">
     <!-- linkedin badge -->
     <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
@@ -76,14 +76,71 @@
 </section>
 
 
-<section class="main-sesction-title" id="___MainSectionTitle___"><h1>___MainSectionTitle___</h1></section>
-<section class="sub-sections"><h2>___MainSectionTitle___</h2>
-    <section><h3>___MainSectionSubTitle___</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>__List item 1__</dt>
-            <dd>__aditional_optional_notes__</dd>
-            <pre><code rel="Python" class="python" style="min-height: 10vh;">
-                # code is aligned 4 spaces right to pre
+<section data-min="5"><h1>Variables/Value Names</h1></section>
+<section><h2>Variables in Python</h2>
+    <section><h3>What is a variable in Python?</h3>
+        <dl class="fa">
+            <dt>A variable is a <span class="note">name</span> (identifier) for a "container" (located in RAM) in which values can be stored and retrieved.</dt>
+            <dt>In Python we can create (<span class="note">define</span>) a variable by simply assigning a value to it, like: <code>x=5</code></dt>
+            <dt>In next example we will define 5 variables, to store some values:</dt>
+            <pre><code rel="Python" class="python3">
+                x = 99
+                y = 3.141516
+                first_name = "ada"
+                sur_name = "byron"
+                num_list = [1,2,3,4,5]
+            </code></pre>
+            <dd>Python stores the values in RAM and remembers the names we give them, so we can access the values later using those names.:
+                <a href="images/python_variables_in_RAM.png"><img src="images/python_variables_in_RAM.png" style="height: 70vh; display: block; margin:.5em 0 0 2em"></a>
+            </dd>
+        </dl>
+    </section>
+    <section><h3>Variables (Identifiers) rules</h3>
+        <dl class="fa" style="width: 100%">
+            <dt>Variables names should follow next rules:</dt>
+            <dd>Start with <span class="note">letter or underscore</span></dd>
+            <dd>Followed by zero or more <span class="note">letters, underscores and digits</span></dd>
+            <dt>Variable names <span class="note">are case-sensitive</span></dt>
+            <!-- <dt><a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">Identifiers and keywords</a> @python docs</dt> -->
+        </dl>
+        <pre><code rel="Python" class="python3">
+            x = 99
+            print("x = ", x)
+
+            first_name = "ada"
+            print("first_name = ", first_name)
+
+            print("first_name = ", First_name) #NameError: name 'First_name' is not defined
+
+            sur-name = "byron" #SyntaxError: can't assign to operator
+
+        </code></pre>
+    </section>
+    <section><h3>Assignment Statement</h3>
+        <dl class="fa">
+            <dt>An assignment statement in Python assigns a value to a variable. The basic syntax is:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 5vh;">
+                variable = expression
+            </code></pre>
+            <dt>First <code>expression</code> is evaluated, and then its result is assigned to <code>variable</code>.</dt>
+            <dt>Examples:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 30vh;">
+                ### Create variable x with value 5
+                x=5
+
+                ### Assign to x new value 10
+                x=10
+
+                ### Multiple Assignments
+                x, y = 10, 20 	# x=10 and y=20.
+
+                ### Chain Assignment:
+                x = y = 10      # x = 10 and y = 10
+
+                ### Shorthand Assignment with Operators:
+                x += 10  	# Equivalent to x = x + 10
+                x **= 10  	# Equivalent to x = x ** 10
+
             </code></pre>
         </dl>
     </section>
@@ -91,7 +148,982 @@
 
 
 
-<section id="hw">
+<section data-min="5"><h1>Data Types Introduction</h1></section>
+<section><h2>Data Types Introduction</h2>
+    <dl class="fa">
+        <dt class="note">Programming is about manipulating <b>data</b></dt>
+        <dt>Each programming language defines its data types and the corresponding operations which can be performed on each data type.</dt>
+		<pre><code rel="Python" class="python">
+			print( 1 + 2 ) # 3
+			print( '1' + '2' ) # 12
+			print( True + True ) # 2
+			print( 3 * 4 ) # 12
+			print( 3 * '4' ) # 444
+		</code></pre>
+        <dt>In Python, each data type literal is represented internally as <b>object</b></dt>
+    </dl>
+</section>
+
+<section data-min="10"><h1>Numeric Data Types</h1></section>
+<section><h2>Numeric Data Types</h2>
+    <section>
+        <dl class="fa">
+            <dt>In Python we can use <span class="keyword">integer</span>, <span class="keyword">floating point</span> and <span class="keyword">complex</span> numbers</dt>
+            <dt>Numbers are <span class="note">immutable</span> data types! That is, they cannot be changed after they are created.</dt>
+            <dt>Most arithmetic operations are natively defined in Python.</dt>
+            <dt>More complex math functions are defined in the <a href="https://docs.python.org/3/library/math.html">math module</a></dt>
+        </dl>
+    </section>
+    <section><h3>integer numbers</h3>
+        <p>we can use positive and negative integers:</p>
+        <pre><code rel="Python" class="python3" data-no-copy>
+            # positive integer literal:
+            >>> 42
+            42
+
+            >>> +42
+            42
+
+            # negative integer literal:
+            >>> -42
+            -42
+        </code></pre>
+    </section>
+    <section><h3>floating point numbers</h3>
+        <p>we can use positive and negative floating point numbers</p>
+        <pre><code rel="Python" class="python3" data-no-copy>
+            >>> 3.1234
+            3.1234
+
+            >>> -0.255
+            -0.255
+
+            # leading zero can be skipped:
+            >>> .44
+            0.44
+            >>> -.55
+            -0.55
+            >>>
+        </code></pre>
+    </section>
+    <section><h3>Underscores in Numeric Literals</h3>
+        <dl class="fa">
+            <dt>As of <span class="note">Python 3.6</span> you can use underscores in numeric literals to improve readability of long numbers</dt>
+            <pre><code rel="Python" class="python3" data-no-copy>
+                >>> 1_000_000 + 2_000_000
+                3000000
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>arithmetic operations</h3>
+        <dl class="fa">
+            <dt>Python supports the standard arithmetic operations:</dt>
+            <pre><code rel="Python" class="python3" style="min-height: 40vh;" data-no-copy>
+                >>> 5-3
+                2
+                >>> 5*3
+                15
+                >>> 5/3
+                1.6666666666666667
+                >>> 5//3
+                1
+                >>> 5%3
+                2
+            </code></pre>
+            <dt>Reference: <a href="https://docs.python.org/3/library/stdtypes.html?highlight=arithmetic%20operation#numeric-types-int-float-complex">Numeric Types</a>@python docs</dt>
+        </dl>
+    </section>
+    <section><h3>the <code>math</code> module</h3>
+        <dl class="fa">
+            <dt>math module is native to every python distribution.</dt>
+            <dt>to use its functions you only have to import it in your program:</dt>
+            <pre><code rel="Python" class="python3" data-no-copy>
+                import math
+
+                # Example: Calculate square root of a number
+                number = 16
+                sqrt_value = math.sqrt(number)
+
+                print("Square root of", number, "is", sqrt_value)
+            </code></pre>
+            <dt><a href="https://docs.python.org/3/library/math.html">math — Mathematical functions</a> @python docs</dt>
+        </dl>
+    </section>
+    <section><h3>Built-in math functions</h3>
+        <dl class="fa">
+            <dt>Python interpreter has a number of built-in functions which can be used without any imports.</dt>
+            <dt>Part of them, concerning Math are: <code><a href="https://docs.python.org/3/library/functions.html#abs">abs()</a></code>, <code><a href="https://docs.python.org/3/library/functions.html#max">max()</a></code>, <code><a href="https://docs.python.org/3/library/functions.html#min">min()</a></code>, <code><a href="https://docs.python.org/3/library/functions.html#round">round()</a></code></dt>
+        </dl>
+    </section>
+    <section><h3>Example: math module methods</h3>
+        <pre><code rel="Python" class="python3" style="min-height: 60vh;" data-no-copy>
+            >>> import math
+            >>>
+            >>> math.pi
+            3.141592653589793
+            >>> math.floor(math.pi)
+            3
+            >>> math.pow(2,3)
+            8.0
+            >>> math.sqrt(9)
+            3.0
+            >>> math.ceil(2.9)
+            3
+            >>> math.ceil(2.1)
+            3
+            >>> math.floor(2.9)
+            2
+            >>> math.floor(2.1)
+
+        </code></pre>
+    </section>
+    <section><h3>Example: math built-in functions</h3>
+        <pre><code rel="Python" class="python3" data-no-copy>
+            >>> round(2.51)
+            3
+            >>> round(2.49)
+            2
+            >>> max(1,2,3)
+            3
+            >>> min(1,2,3)
+            1
+            >>> abs(2-5)
+            3
+
+        </code></pre>
+    </section>
+</section>
+
+<section data-min="20"><h1>Strings in Python</h1></section>
+<section><h2>Strings in Python</h2>
+    <section><h3>definition</h3>
+        <dl class="fa">
+            <dt>Strings are <b>immutable</b> sequences of Unicode symbols.</dt>
+            <dt><b>Single-line strings</b> literal should be closed in single or double quotes</dt>
+            <dd class="note">No difference between single or double quoted strings!</dd>
+            <dt><b>Multi-line strings</b> literal should be closed in triple single or double quotes</dt>
+            <pre><code rel="Python" class="python3" style="min-height: 68vh;" data-no-copy>
+                >>> "this is a single line string"
+                'this is a single line string'
+
+                >>> 'another single line string with UTF charactes like 🍷'
+                'another single line string with UTF charactes like 🍷'
+
+                >>> """this is a multiline
+                ... string"""
+                'this is a multiline\nstring'
+
+                >>> '''this is a multiline
+                ... string'''
+                'this is a multiline\nstring'
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section><h1>Escape Sequences.</h1></section>
+<section><h2>Escape Sequences</h2>
+    <section>
+        <dl class="fa">
+            <dt>Escape sequences are special character combinations used in strings to represent characters that cannot be typed directly.</dt>
+            <dt>The backslash (\) character in a string is used to escape characters that otherwise have a special meaning, such as newline, backslash itself, or the quote character.</dt>
+            <dt>With escape sequence we can insert characters that are illegal in a string, like quotes or new line symbol.</dt>
+            <dt>The most used escape sequences are given bellow:</dt>
+        </dl>
+        <table>
+            <tr>
+                <th>escape character</th>
+                <th>result</th>
+            </tr>
+            <tr>
+                <td>\'</td>
+                <td>Single Quote</td>
+            </tr>
+            <tr>
+                <td>\"</td>
+                <td>Double Quote</td>
+            </tr>
+            <tr>
+                <td>\n</td>
+                <td>New Line</td>
+            </tr>
+            <tr>
+                <td>\t</td>
+                <td>Tab</td>
+            </tr>
+            <tr>
+                <td>\\</td>
+                <td>Backslash</td>
+            </tr>
+        </table>
+        <dl class="fa">
+            <dt>Reference: <a href="https://docs.python.org/3/reference/lexical_analysis.html#index-23">List of recognized escape sequences in Pyhton</a></dt>
+        </dl>
+    </section>
+    <section><h3>Examples</h3>
+        <pre><code rel="Python" class="python3">
+            print('line1\nline2')
+            #line1
+            #line2
+
+            print('abc\t123')
+            #abc     123
+
+            print('John\'s pub')
+            #John's pub
+
+            # above, we can do without escape, but changing quotes
+            print("John's pub")
+            #John's pub
+        </code></pre>
+    </section>
+</section>
+
+<section data-min="10"><h1>Strings operations</h1></section>
+<section><h2>Strings operations</h2>
+    <section><h3>concatenation: <code>+</code></h3>
+        <p>The operation is defined only when <span class="note">both operands are string</span>. <br>Python can not concatenate "apples with oranges":</p>
+        <pre><code rel="Python" class="python3">
+            #string concatenation with '+':
+            >>> "ala" + "bala"
+            'alabala
+
+            >>> "1" + "2"
+            '12'
+
+            >>> "1" + 3
+            TypeError: cannot concatenate 'str' and 'int' objects
+        </code></pre>
+    </section>
+    <section><h3>repetition: <code>*</code></h3>
+        <p>One of the operands must be <span class="note">string</span>, the other - <span class="note">integer</span></p>
+        <pre><code rel="Python" class="python3">
+            >>> "-" * 10
+            '----------'
+
+            >>> "1" * 10
+            '1111111111'
+
+            >>> ">hello<" * 3
+            '>hello<>hello<>hello<'
+
+            >>> "a" * "3"
+            TypeError: can't multiply sequence by non-int of type 'str'
+        </code></pre>
+    </section>
+    <section><h3>String Methods</h3>
+        <pre><code rel="Python" class="python3">
+            # string methods:
+            >>> "ada".capitalize()
+            'Ada'
+            >>> "alabala".count("a")
+            4
+            >>> "Alabala".count("a")
+            3
+            >>> "AlabAla".find("a")
+            2
+            >>> "alabala".replace("a", "o")
+            'olobolo'
+            >>> "one,two,three".split(",")
+            ['one', 'two', 'three']
+        </code></pre>
+        <p style="opacity: 0.7; font-size: 0.9em">What a method is will be discussed further!</p>
+        <p>Reference: <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">String Methods @docs.python.org</a></p>
+    </section>
+</section>
+
+
+<section data-min="5"><h1>Comments</h1></section>
+<section><h2>Comments</h2>
+    <section><h3>Why to comment our code?</h3>
+        <dl class="fa">
+            <dt>Python interpreter ignores every part of a program, which is marked as a "comment"</dt>
+            <dt>Comments are used to explain and/or summarize a part of our program in a more readable manner</dt>
+            <dt>For debugging purposes - when we need fast to ignore a block of code</dt>
+            <dt>For other meta information about the program (programme name, author, date, etc.)</dt>
+            <dt>A well commented program is more readable and maintainable.</dt>
+            <dt>Reference: <a href="https://www.python.org/dev/peps/pep-0008/#comments">PEP8 - Comments</a></dt>
+        </dl>
+    </section>
+    <section><h3>How to comment our code?</h3>
+        <dl class="fa">
+            <dt>Single line comment: <code class="note">#</code></dt>
+            <dd>every line which starts with <code class="note">#</code>(hash tag) is a comment and is ignored py Python interpreter</dd>
+            <pre><code rel="Python" class="python3">
+                # this is a just a comment: no print("whatever") will happens
+                print("this will be printed, of course")
+
+                ### a more semantic example for comment:
+                # check if a triangle with sides (3,4,5) is a Pythagorean:
+                print(3**2 + 4**2 == 5**2)
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section data-min="5"><h1>Basic Input/Output (I/O)</h1></section>
+<section><h2>Basic Input/Output (I/O)</h2>
+    <section><h3>print() function</h3>
+        <dl class="fa" style="width: 80vw;">
+            <dt><a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a> function is used for outputting data to the console.</dt>
+            <pre><code rel="Syntax" class="python">
+                print(*objects, sep=' ', end='\n',file=sys.stdout, flush=False)
+            </code></pre>
+            <dt>Examples</dt>
+            <pre><code rel="Python" class="python" style="min-height: 65vh;">
+                ### basic usage
+                print("Hello")
+                print("World")
+                #Hello
+                #World
+
+
+                ### Print multiple values. Note that default separator is space
+                print(1,2,3)
+                # 1 2 3
+
+                # Change separator to '-'
+                print(1,2,3,sep="-")
+                # 1-2-3
+
+                # Change default EOL symbol ("\n") to none. So, there will be no new line after print
+                print("Hello",end="")
+                print("World",end="")
+                print("!")
+                # HelloWorld!
+            </code></pre>
+        </dl>
+
+    </section>
+    <section><h3>Python input() function</h3>
+        <dl class="fa">
+            <dt><a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a> function is used to get user input <b>as string</b>.</dt>
+            <pre><code rel="Syntax" class="python3">
+                variable = input("prompt message, to be displayed to the user: ")
+            </code></pre>
+            <dt>Examples:</dt>
+            <pre><code rel="Python" class="python">
+                name = input("Enter your name: ")
+                print("Hello,", name)
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Input always returns a string - Example</h3>
+        <dl class="fa">
+            <dt>Note, that no matter what value is entered, it will be <span class="note">stored as a string</span>!</dt>
+            <pre><code rel="Python" class="python3">
+                value = input(&quot;Enter a number: &quot;)
+                print(&quot;The type of the entered value is:&quot;, type(value))  # Always &lt;class &apos;str&apos;&gt;
+            </code></pre>
+            <dd>Even if you enter a number like 42, the value will be stored as a string ("42").</dd>
+            <dt>But you can easily convert it to numerical, using the built in functions <a href="https://docs.python.org/3/library/functions.html#input"><code>int()</code></a> or <a href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a></dt>
+            <pre><code rel="Python" class="python" style="min-height: 40vh;">
+                value = input(&quot;Enter a number: &quot;)
+
+                # Convert to integer
+                integer_value = int(value)
+                print(&quot;Integer value:&quot;, integer_value)
+                print(&quot;Type of integer_value:&quot;, type(integer_value))
+
+                # Convert to float
+                float_value = float(value)
+                print(&quot;Float value:&quot;, float_value)
+                print(&quot;Type of float_value:&quot;, type(float_value))
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section data-min="50"><h1>Formatted Strings (f-strings)</h1></section>
+<section><h2>Formatted Strings (f-strings)</h2>
+    <section><h3>Why?</h3>
+        <dl class="fa">
+            <dt>Before Python 3.6 we have to use the concatenation operator when we want to display some string and some variables interpolated into it.</dt>
+            <dt>Consider next example:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 20vh;">
+                user_name = 'Ada'
+                user_surname = 'Byron'
+
+                print('Hello ' + user_name + ' ' + user_surname + '!')
+
+                # Hello Ada Byron!
+            </code></pre>
+            <dt>With <code>f-strings</code>, the code is more readable and easy to write (like using "template strings" in JavaScript):</dt>
+            <pre><code rel="Python" class="python" style="min-height: 20vh;">
+                user_name = 'Ada'
+                user_surname = 'Byron'
+
+                print(f'Hello {user_name} {user_surname}!')
+
+                # Hello Ada Byron!
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>What are <code>f-strings</code>?</h3>
+        <dl class="fa">
+            <dt>Python 3.6 added "f-strings" which provide concise and convenient way to embed Python expressions inside string literals.</dt>
+            <pre><code rel="Syntax" class="python" style="min-height: 1vh;">
+                f"some text {expression} more text"
+            </code></pre>
+            <dt>The letter "f" is used as a prefix before the opening quotation mark of the string literal. Inside string literal we can use <code>{}</code> (curly braces) to embed any Python expression.</dt>
+            <dt>Example:</dt>
+            <pre><code rel="Python" class="python3" style="min-height: 62vh;">
+                # single line f-string:
+                x = 1
+                y = 2
+                print(f'x + y = {x+y}')
+
+                #x + y = 3
+
+                # multiline f-strings
+                print(f"""
+                x=1
+                y=2
+                x+y = {x+y}
+                """)
+
+                #x=1
+                #y=2
+                #x+y = 3
+
+            </code></pre>
+            <dt>More on f-strings: </dt>
+            <dd><a href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings">Formatted String Literals</a> @python tutorial</dd>
+        </dl>
+        </section>
+    <section><h3>Formatting <code>f-strings</code></h3>
+        <dl class="fa">
+            <dt>The <code>f-strings</code> in Python allow for various format specifiers to control how the values are displayed.</dt>
+            <dt>Examples:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 62vh;">
+                # ------------------- Precision for Floating Point Numbers ------------------- #
+                PI = 3.14159265
+
+                # rounded to 2 decimal places:
+                print(f"{PI:.2f}")
+                # 3.14
+
+                # ---------------------- Comma as a thousands separator ---------------------- #
+                budget = 1234567890
+                print(f'budget={budget:,}')
+                # budget=1,234,567,890
+
+                # ---------------------- Format a number as a percentage --------------------- #
+                accuracy = 0.95678
+                print(f"Accuracy: {accuracy:.2%}")
+
+                # Accuracy: 95.68%
+            </code></pre>
+            <dt>Reference: <a href="https://docs.python.org/3/library/string.html#formatspec">Format Specification Mini-Language</a></dt>
+        </dl>
+    </section>
+    <section><h3>Formatting <code>f-strings</code> - more examples</h3>
+        <pre><code rel="Python" class="python" style="min-height: 90vh;">
+            &lt;!-- --------------------------- Width and Align --------------------------- --&gt;
+            x = 123
+
+            # Right-align x within a 10-character wide field:
+            print(f&quot;---&gt;{x:&gt;10}&lt;---&quot;)
+            # ---&gt;       123&lt;---
+
+            # Center-align x within a 10-character wide field:
+            print(f&quot;---&gt;{x:^10}&lt;---&quot;)
+            # ---&gt;   123    &lt;---
+
+            # Center-align x within a 10-character wide field, padding with &apos;*&apos;:
+            print(f&apos;---&gt;{x:*^10}&lt;---&apos;)
+            # ---&gt;***123****&lt;---
+
+            # Pad an integer with zeros.
+            day = 5
+            print(f&quot;Day of the month: {day:02d}&quot;)
+            # Day of the month: 05
+
+
+            # ---------------------------- Dynamic Formatting ---------------------------- #
+            value = 12.34567
+            precision = 3
+
+            # Use variables to determine the format.
+            print(f&quot;Value: {value:.{precision}f}&quot;)
+            # Value: 12.346
+        </code></pre>
+    </section>
+    <section><h3>Task</h3>
+        <dl class="fa">
+            <dt>Write a program which will print next output:</dt>
+            <pre><code rel="Terminal" class="bash">
+                |==========|==========|
+                |         1|1         |
+                |        23|23        |
+                |       456|456       |
+                |==========|==========|
+            </code></pre>
+        </dl>
+        <br>
+        <dl class="fa custom-fragment" style="width: 40vw; margin: 0 auto;">
+            <dt>Solution</dt>
+            <pre><code rel="Python" class="python" style="min-height: 20vh;">
+                print(f&quot;|{&#39;=&#39;*10}|{&#39;=&#39;*10}|&quot;)
+                print(f&quot;|{1:&gt;10}|{1:&lt;10}|&quot;)
+                print(f&quot;|{23:&gt;10}|{23:&lt;10}|&quot;)
+                print(f&quot;|{456:&gt;10}|{456:&lt;10}|&quot;)
+                print(f&quot;|{&#39;=&#39;*10}|{&#39;=&#39;*10}|&quot;)
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+
+<section id="BooleanType"><h1>Boolean type</h1></section>
+<section><h2>Boolean type</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Most programming languages define a Boolean type, which represents the truth values of logic and Boolean algebra (named after <a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>).</dt>
+            <dt>The Boolean data type consists of only 2 values:</dt>
+            <dd><span class="note">True</span></dd>
+            <dd><span class="note">False</span></dd>
+            <dt>Note, that these are not variables names, but values like 0 and 1!</dt>
+            <pre><code rel="Python" class="bash">
+                &gt;&gt;&gt; print( type(True) )
+                &lt;class 'bool'&gt;
+                &gt;&gt;&gt; print( type(False) )
+                &lt;class 'bool'&gt;
+            </code></pre>
+            <dt>Boolean values in Python are used mainly in the Conditional Statements. They are the returned value of the Comparison Operators. </dt>
+        </dl>
+    </section>
+    <section id="WhatIsTrueFalseInPython"><h3>What is True/False in Python?</h3>
+        <p>True/False values for most of the build-in objects:</p>
+        <table>
+            <tr>
+                <th>Type:</th>
+                <th>=False</th>
+                <th>=True</th>
+            </tr>
+            <tr>
+                <td>any numeric type</td>
+                <td>0 (zero)</td>
+                <td>everything else</td>
+            </tr>
+            <tr>
+                <td>string</td>
+                <td>""</td>
+                <td>any non-empty string</td>
+            </tr>
+            <tr>
+                <td>sequences and collections</td>
+                <td>empty</td>
+                <td>any non empty</td>
+            </tr>
+        </table>
+    </section>
+    <section><h3>What is True/False in Python - the bool() check</h3>
+        <p>Using the built-in function <code><a href="https://docs.python.org/3/library/functions.html#bool">bool()</a></code>, we can convert any Python value to True or False</p>
+        <pre><code rel="Python" class="python">
+            >>> bool(-42)
+            True
+            >>> bool(0)
+            False
+            >>> bool(0.00001)
+            True
+            >>> bool("ada")
+            True
+            >>> bool("")
+            False
+
+        </code></pre>
+    </section>
+</section>
+
+<section id="ComparisonOperators"><h1>Comparison operators</h1></section>
+<section><h2>Comparison operators</h2>
+    <section><h3>intro</h3>
+        <dl class="fa">
+            <dt>With Comparison Operations we can check if 2 or more values are equal or if a value is less than other, and so on.</dt>
+            <dt>The result of a Comparison Operation is True/False</dt>
+            <dt class="note">Comparing objects of different types, except different numeric, will raise a TypeError in Python3! (Can not compare "apples" with "oranges")</dt>
+        </dl><br><br>
+        <pre><code rel="Python" class="python">
+            >>> 2 < 1
+            False
+            >>> 2 < "1"
+            ...
+            TypeError: '<' not supported between instances of 'int' and 'str
+        </code></pre>
+    </section>
+    <section><h3>the operators</h3>
+        <table border="1">
+            <colgroup>
+            <col width="32%">
+            <col width="68%">
+            </colgroup>
+            <thead valign="bottom">
+            <tr><th>Operation</th>
+            <th>Meaning</th>
+            </tr>
+            </thead>
+            <tbody valign="top">
+            <tr><td><code><span>&lt;</span></code></td>
+            <td>strictly less than</td>
+            </tr>
+            <tr><td><code><span>&lt;=</span></code></td>
+            <td>less than or equal</td>
+            </tr>
+            <tr><td><code><span>&gt;</span></code></td>
+            <td>strictly greater than</td>
+            </tr>
+            <tr><td><code><span>&gt;=</span></code></td>
+            <td>greater than or equal</td>
+            </tr>
+            <tr><td><code><span>==</span></code></td>
+            <td>equal</td>
+            </tr>
+            <tr><td><code><span>!=</span></code></td>
+            <td>not equal</td>
+            </tr>
+            <tr style="opacity: 0.7"><td><code><span>is</span></code></td>
+            <td>object identity*</td>
+            </tr>
+            <tr style="opacity: 0.7"><td><code><span>is</span> <span>not</span></code></td>
+            <td>negated object identity*</td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <p>*The identity of an object uniquely identifies where this object is stored in the computer memory. <br> It will be discussed deeply in the OOP part of the course</p>
+    </section>
+    <section><h3>examples</h3>
+        <pre><code rel="Python" class="python">
+            >>> i = 5
+            >>> i < 5
+            False
+            >>> i <= 5
+            True
+            >>> 9 < 1000
+            True
+            >>> "9" < "1000"
+            False
+        </code></pre>
+        <p class="note">Note, the last example: <code>"9" < "1000"</code>, the result is False, because strings are compared lexicographically.</p>
+    </section>
+    <section id="LexicographicalComparison"><h3>lexicographical comparison</h3>
+            <dl class="fa">
+                <dt>Symbols are compared by their position (codepoint) according to the character code table used.</dt>
+                <dt>First the first two items are compared, and if they differ this determines the outcome of the comparison.If they are equal, the next two items are compared, and so on, until either sequence is exhausted.</dt>
+            </dl>
+    </section>
+    <section id="LexicographicalComparisonExample"><h3>So, why  "9" < "1000" returns False?</h3>
+        <dl class="fa">
+            <dt>If we use the <a href="https://ascii.cl/">ASCII Codes Table</a>, we see that the ASCII code point for "9" is 57, and for "1" - 49.</dt>
+            <dt>So, Python compares <code>57 < 49</code> and as the result is False it returns False for the whole expression</dt>
+            <dd class="advanced">You can get the code point for a one-character string using the built-in <code><a href="https://docs.python.org/3/library/functions.html?highlight=ord#ord">ord()</a></code> function</dd>
+        </dl>
+    </section>
+    <section><h3>Comparison operator Chaining</h3>
+        <dl class="fa">
+            <dt>Comparison operators in Python can be chained, instead of combining them with logical 'and'</dt>
+        </dl>
+        <pre><code rel="Python" class="python3">
+            x = 5
+
+            # equivalent of: 0&lt;x and x&lt;10:
+            print(0&lt;x&lt;10)
+        </code></pre>
+    </section>
+</section>
+
+<section id="LogicalBooleanOperators"><h1>Logical (Boolean) operators</h1></section>
+<section><h2>Logical (Boolean) operators</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Logical operations are used to combine simple comparison operations into more sophisticated.</dt>
+            <dd>Like "if the user is adult AND the user is from Bulgaria"</dd>
+        </dl>
+        <br><br>
+        <table>
+            <tr>
+                <th>Operation</th><th>Name</th><th>Result</th>
+            </tr>
+            <tr>
+                <td>x <span class="note">or</span> y</td>
+                <td>Logical OR</td>
+                <td>if x is false, then y, else x</td>
+            </tr>
+            <tr>
+                <td>x <span class="note">and</span> y</td>
+                <td>Logical AND</td>
+                <td>if x is false, then x, else y</td>
+            </tr>
+            <tr>
+                <td><span class="note">not</span> x</td>
+                <td>Logical NOT</td>
+                <td>if x is false, then True, else False</td>
+            </tr>
+        </table>
+        <br>
+        <dl class="fa">
+            <dt>where <code>x</code> and <code>y</code> are <i>expressions</i></dt>
+            <dt><span class="note">and</span> and <span class="note">or</span> returns one of their operands. I.e. not necessary boolean type.</dt>
+            <dt><span class="note">not</span> always returns boolean value</dt>
+        </dl>
+    </section>
+    <section id="truethTable">
+        <table  style="margin: 0 auto">
+            <caption style="margin-bottom: 1em;"><a href="https://en.wikipedia.org/wiki/Truth_table">Truth Table</a>, reflecting how Python works</caption>
+            <colgroup>
+                <col style="background-color:#777777; width: 12%;">
+                <col style="background-color:#737373; width: 12%;">
+                <col style="background-color:#72BBBB; width: 30%;">
+                <col style="background-color:#BB72BB; width: 30%;">
+                <col style="background-color:#BBBB72; width: 30%;">
+            </colgroup>
+            <tr>
+                <th>x</th>
+                <th>y</th>
+                <th style="text-align: center;">AND<br>x and y</th>
+                <th style="text-align: center;">OR<br>x or y</th>
+                <th style="text-align: center;">NOT<br>not x</th>
+            </tr>
+            <tr>
+                <td><b>T</b></td>
+                <td><b>T</b></td>
+                <td><b>T</b> (y)</td>
+                <td><b>T</b> (x)</td>
+                <td><b>F</b></td>
+            </tr>
+            <tr>
+                <td><b>T</b></td>
+                <td><b>F</b></td>
+                <td><b>F</b> (y)</td>
+                <td><b>T</b> (x)</td>
+                <td><b>F</b></td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>T</td>
+                <td><b>F</b> (x)</td>
+                <td><b>T</b> (y)</td>
+                <td><b>T</b></td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>F</td>
+                <td><b>F</b> (x)</td>
+                <td><b>F</b> (y)</td>
+                <td><b>T</b></td>
+            </tr>
+        </table>
+        <p>Legend: <b>T</b> - true; <b>F</b> - false</p>
+        <h3>Examples</h3>
+        <pre><code rel="Python" class="python">
+            >>> True and False
+            False
+            >>> 0 and 1
+            0
+            >>> 0 or 1
+            1
+            >>> 1 or 0
+            1
+            >>> not 1
+            False
+            >>> not 0
+            True
+        </code></pre>
+    </section>
+    <section><h3>More examples</h3>
+        <pre><code rel="Python" class="python">
+            user_name=''
+            user_age = 15
+            user_country = 'BG'
+
+            print(user_age>18 and user_country=='BG')
+            print(user_age>18 or user_country=='BG')
+
+            # note that the value of logical operations is not always True/False
+            print(user_name and 'Anonymous' )
+            print(user_name or '***Anonymous***' )
+        </code></pre>
+        <pre class="fragment fade-down"><code rel="Output" class="bash" data-no-copy>
+            False
+            True
+
+            ***Anonymous***
+        </code></pre>
+    </section>
+</section>
+
+<section id="ControlFlowStatements"><h1>Control Flow Statements</h1></section>
+<section><h2>Control Flow Statements</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Normal control flow of a Python program defines that statements are executed one after another, as written in code.</dt>
+            <dt>The Control Flow statements allows our program to react in one way, if some <span class="note">condition</span> is True, or in another way, if it's False.</dt>
+        </dl>
+    </section>
+</section>
+
+<section id="IfStatement"><h1><code class="note">if</code> statement</h1></section>
+<section><h2><code class="note">if</code> statement</h2>
+    <section><h3>Syntax</h3>
+        <a href="images/ifFlow.png"><img src="images/ifFlow.png" style="height:20vh"></a><br>
+        <dl class="fa">
+            <dt><span class="note">Condition</span> can be any expression, which is evaluated to <span class="note">True/False</span> (recall <a href="#WhatIsTrueFalseInPython" target="_blank">What is True/False in Python</a> )</dt>
+            <pre><code rel="Syntax" class="shell">
+                if condition :
+                    block 1
+            </code></pre>
+            <dt>In Python, to encompass the statements which forms a block, you do not need to put any braces, but each statement have to be indented with the same amount of spaces!</dt>
+            <pre><code rel="Python" class="python">
+                x = 42
+
+                if x % 2 == 0:
+                    print("{} is an even number!".format(x))
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>example - align matters</h3>
+        <pre><code rel="Python" class="python">
+            if False :
+                print("1")
+                print("2")
+            print("3")
+        </code></pre>
+        <dl class="fa">
+            <dt><code>print(1)</code>  and <code>print(2)</code>  forms a block, which will be executed, <span class="note">only if the condition is true</span>.</dt>
+            <dt>But <code>print(3)</code>  is not in the block, and will be always executed!</dt>
+        </dl>
+    </section>
+</section>
+
+<section id="IfElseStatement"><h2><code class="note">if - else</code> statement</h2>
+    <section><h3>Syntax</h3>
+        <pre><code rel="Syntax" class="shell">
+            if condition :
+                block 1
+            else :
+                block 2
+        </code></pre>
+        <a href="images/if-elseFlow.png"><img src="images/if-elseFlow.png"></a><br>
+    </section>
+
+    <section><h3>example - even/odd number</h3>
+        <pre><code rel="Python" class="python">
+            x = 41
+
+            if x % 2 == 0:
+                print("{} is an EVEN number!".format(x))
+            else:
+                print("{} is an ODD number!".format(x))
+
+            # OUTPUT
+            # 41 is an ODD number!
+        </code></pre>
+    </section>
+    <section><h3>example - hello in BG</h3>
+        <pre><code rel="Python" class="python">
+            user_lang = "bg"
+            if user_lang == "bg":
+                print("Здравейте")
+            else:
+                print("Hello")
+            print("-" * 20)
+        </code></pre>
+        <pre><code rel="Output" class="shell">
+            Здравейте
+            --------------------
+        </code></pre>
+    </section>
+</section>
+
+<section id="id="IfElifElseStatement"><h2><code class="note">if - elif - else</code> statement</h2>
+    <section><h3>Syntax</h3>
+        <pre><code rel="Syntax" class="shell">
+            if c1 :
+                block 1
+            elif c2:
+                block 2
+            else:
+                block 3
+        </code></pre>
+        <a href="images/if-elif-elseFlow.png"><img src="images/if-elif-elseFlow.png"></a><br><br>
+        <dl class="fa">
+            <dt><span class="note">We can have more than one elif statement</span>, as shown in next examples!</dt>
+        </dl><br>
+    </section>
+    <section><h3>example - multinational hello</h3>
+        <pre><code rel="Python" class="python">
+            user_lang = "it"
+
+            if user_lang == "bg":
+                print("Здравейте")
+            elif user_lang == "it":
+                print("Ciao")
+            elif user_lang == "en":
+                print("Hello")
+            else:
+                print("I do not speak your language!")
+
+            print("-" * 20)
+        </code></pre>
+    </section>
+</section>
+
+<section id="ConditionalExpression"><h1 class="advanced">Conditional expression (aka Ternary Operator)</h1></section>
+<section><h2>Conditional expression (aka Ternary Operator)</h2>
+    <section>
+        <dl class="fa">
+            <dt>Conditional expressions, often known as "ternary operators" in many programming languages, are a shorthand way of writing conditional statements. </dt>
+            <dt>They provide a compact syntax for deciding which of two values to assign to a variable. </dt>
+            <dt>In Python, conditional expressions enhance readability and brevity.</dt>
+            <dt>The basic syntax of a conditional expression in Python is:</dt>
+            <pre><code rel="Syntax" class="python" style="min-height: 4vh;">
+                x if condition else y
+            </code></pre>
+            <dt>This expression evaluates <code>condition</code>, and:</dt>
+            <dd>If <code>condition</code> is <code>True</code>, the expression evaluates to <code>x</code>.</dd>
+            <dd>If <code>condition</code> is <code>False</code>, it evaluates to <code>y</code>.</dd>
+            <dt>Example:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 30vh;">
+                user_age = 5
+                print( 'adult' if user_age>=18 else "child" )  # 'adult'
+
+                # above code is equivalent to next if-else statement:
+                if user_age>=18:
+                    print('adult')
+                else:
+                    print('child')
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section id="StatementVsExpression"><h1>Statement vs Expression</h1></section>
+<section><h2>Statement vs Expression</h2>
+    <section>
+        <dl class="fa">
+            <dt class="note">Expression:</dt>
+            <dd>An expression in Python is any combination of literals (like numbers or string values), variables, operators, and calls to functions that <b>return a value</b>.</dd>
+            <dd>Expressions need to be evaluated. When Python evaluates an expression, it computes its value.</dd>
+            <dd>A simple example of an expression is 2 + 3. When evaluated, Python understands this and computes its value, 5.</dd>
+            <dt class="note">Statement:</dt>
+            <dd>A statement, on the other hand, is an instruction that Python can execute. Think of it as an action or command.</dd>
+            <dd>Statements do something but don't necessarily produce a value.</dd>
+            <dd>Examples include assignment statements like x = 5, print statements, if statements, for loops, etc.</dd>
+            <dt>Key Differences</dt>
+            <dd><b><span class="note">Expressions</span> always produce or return a value. <span class="note">Statements</span> do not produce value, they do something.</b></dd>
+            <dd>Expressions can be parts of statements. For example, in x = 5 + 3, the 5 + 3 is an expression, while x = 5 + 3 is a statement.</dd>
+            <dd>Statements are more about performing an action, while expressions are about producing a value.</dd>
+        </dl>
+    </section>
+</section>
+
+
+
+<!-- <section id="hw">
     <section><h1>Homework</h1></section>
     <section id="task1"><h3>Homework</h3>
         <dl class="fa">
@@ -99,7 +1131,7 @@
             <dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
         </dl>
     </section>
-</section>
+</section> -->
 
 
 
