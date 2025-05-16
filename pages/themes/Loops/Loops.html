@@ -565,33 +565,72 @@
 
 
 
-<section id="hw">
-    <section><h1>Homework</h1></section>
-    <section id="task1"><h3>Homework</h3>
+<section id="hw"><h1>Exercises</h1></section>
+<section><h2>HW</h2>
+    <section><h3>Tasks on Loops and Data Strucures</h3>
         <dl class="fa">
-            <dt>The tasks are given in next <a href="__URL__">file</a></dt>
+            <dt>The tasks are given in next <a href="https://gist.github.com/ProgressBG-Python-Course/94ec012e7981f29d548c7af94358effa">gist file</a></dt>
             <dt>You can copy it and work directly on it. Just put your code under "### Your code here".</dt>
         </dl>
     </section>
-</section>
-
-
-
-<!-- <section class="main-sesction-title" id="hw"><h1>Exercises</h1></section>
-<section class="sub-sections"><h2>Task1</h2>
-    <section><h3>The Task</h3>
-
+    <section><h3>"Guess the number" game</h3>
+        <dl class="fa">
+            <dt><b>Task</b>: Create a Python program for a "Guess the Number" game. The game will generate a random number within a specified range and prompt the user to guess the number. The program provides feedback based on the user's guess - whether it's too high, too low, or correct. The game continues until the user guesses the number correctly.</dt>
+            <dt><b>Requirements</b>:</dt>
+            <dd>Random Number Generation: The program should generate a random number within a given range (e.g., 1 to 10). You can use the <code>random.randint(1, 10)</code> method, after including in your code <code>import random</code></dd>
+            <dd>User Input: Prompt the user to enter their guess. Ensure, the user guess is in the range, and if not, display "Your guess is out of bounds."</dd>
+            <dd>Feedback to User: After each guess, the program should provide feedback:
+                <ul>
+                    <li>If the guess is too high, display "Too hight!"</li>
+                    <li>If the guess is too low, display "Too low!"</li>
+                    <li>If the guess is correct, display "Congratulations! You guessed it right."</li>
+                </ul>
+            </dd>
+            <dd>Repeat Guesses: The game should continue, allowing the user to guess again if the guess is incorrect.</dd>
+            <dd>Terminate the Game: Once the correct number is guessed, the game should end with message "Bravo, you guessed my number"</dd>
+            <dd>Optional - Guess Counter: Keep track of the number of guesses the user makes and display this count when the correct number is guessed.</dd>
+            <dt><b>Bonus Challenge</b>:</dt>
+            <dd>Add a feature to limit the number of guesses a user can make. If the user doesn't guess the number within the limit, end the game with a message indicating that the user has lost.</dd>
+            <dd>Implement a difficulty level for the game (e.g., easy, medium, hard), where each level has a different range of numbers or a different number of allowed guesses.</dd>
+        </dl>
     </section>
-</section> -->
+    <section><h3>"Guess the number" - demo output</h3>
+        <pre><code rel="Terminal" class="ascii" style="min-height: 80vh;">
+            Welcome to Guess the Number!
 
-<!-- <section><h3>Submission</h3>
-    <dl class="fa">
-        <dt>Please, prefix your filenames/archive with your name initials, before sending.</dt>
-        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
-        <dt>Send files to <a href="mailto:progressbg.python.course@gmail.com?Subject=HW: Loops">progressbg.python.course@gmail.com</a></dt>
-    </dl>
-</section> -->
+            ********************* Levels *********************
+            * 1. EASY, range: (1, 10), max moves: 7          *
+            * 2. MEDIUM, range: (1, 10), max moves: 5        *
+            * 3. HARD, range: (1, 100), max moves: 10        *
+            **************************************************
 
+            >>> Select level: 5
+                ( Enter a number between 1 and 3 )
+
+            >>> Select level: 2
+
+            *** Let's play MEDIUM. Good Luck! ***
+
+            >>> Guess the number (between 1 and 10): 5
+            Too high! Moves left: 4
+
+            >>> Guess the number (between 1 and 10): 1
+            Too low! Moves left: 3
+
+            >>> Guess the number (between 1 and 10): 2
+
+            *** Congratulations! You guessed it right in 3 moves!. ***
+        </code></pre>
+    </section>
+    <!-- <section><h3>"Guess the number" - solutions</h3>
+        <dl class="fa">
+            <dt>a solution with while loop</dt>
+            <dd><a href="Task_and_HW/guess_the_number_while_loop.py">guess_the_number_while_loop.py</a></dd>
+            <dt>a solution with for loop</dt>
+            <dd><a href="Task_and_HW/guess_the_number_for_loop.py">guess_the_number_for_loop.py</a></dd>
+        </dl>
+    </section> -->
+</section>
 
 
 <section class="disclaimer" data-background="/ProgressBG-Python-Ind/outfit/images/for_slides/the_end_on_sand.jpg">
