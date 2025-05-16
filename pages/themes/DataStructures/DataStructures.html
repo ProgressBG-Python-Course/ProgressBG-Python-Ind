@@ -808,57 +808,6 @@
             # 9
         </code></pre>
     </section>
-    <section><h3 class="advanced">Slicing columns from "lists of lists" ?</h3>
-        <dl class="fa">
-            <dt>Python did not support syntax to slice columns from "multi dim" looking list</dt>
-            <pre><code rel="Python" class="python" style="min-height: 40vh;">
-                m = [
-                    [1,2,3],
-                    [4,5,6],
-                    [7,8,9],
-                ]
-
-                # trying to slice the second column ([2,5,8]):
-                print(m[:,1])
-                # TypeError: list indices must be integers or slices, not tuple
-            </code></pre>
-        </dl>
-    </section>
-    <section><h3 class="advanced">multi-dimensional arrays</h3>
-        <dl class="fa">
-            <dt>The package <a href="http://www.numpy.org/">numpy</a> contains powerful N-dimensional array objects and other numerical operations (we'll go into it in later topics).
-            </dt>
-            <dt>In order to use it, you need to install it first (we'll cover deeply modules instalation topic later), for now just open a terminal ad paste:</dt>
-            <pre><code rel="Terminal" class="bash">
-                pip install numpy
-            </code></pre>
-            <dt>Crete next python file (python_numpy_demo.py):</dt>
-            <pre><code rel="python_numpy_demo.py" class="python" style="min-height: 40vh;">
-                import numpy
-
-                # lets create a python list
-                m = [
-                    [1,2,3],
-                    [4,5,6],
-                    [7,8,9],
-                ]
-
-                # create a numpy array from that list:
-                arr = numpy.array(m)
-
-                # now we can easily use numpy's multi-dim slicing:
-                print(arr[:,1])
-                #[2 5 8]
-
-                print(type(arr[:,1]))
-            </code></pre>
-            <dt>And execute it</dt>
-            <pre><code rel="Output" class="bash">
-                [2 5 8]
-                &lt;class &apos;numpy.ndarray&apos;&gt;
-            </code></pre>
-        </dl>
-    </section>
     <section><h3>List of tuples</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>A common use case for List of Tuples is storing 2D or 3D coordinates, e.g., [(x1, y1), (x2, y2)].</dt>
