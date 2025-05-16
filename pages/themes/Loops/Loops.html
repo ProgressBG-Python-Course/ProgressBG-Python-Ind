@@ -81,7 +81,22 @@
     <section>
         <dl class="fa">
             <dt>Loops are control statements which allows a block of code to be executed <span class="note">multiple</span> times.</dt>
-            <dt>This repetition of a code can be fixed number of times (<span class="note">for loop</span>) or while some <span class="note">condition</span> is fulfilled (<span class="note">while loop</span>).</dt>
+
+            <dt>There are two main types:</dt>
+            <dd><code>for</code> loop - repeats for each item in a sequence. The repetition of a code is fixed number of times</dd>
+            <dd><code>while</code> loop - repeats while a condition is True. </dd>
+            <dt>Example: <code>for</code> loop:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                for x in [1, 2, 3]:
+                    print(x)
+            </code></pre>
+            <dt>Example: <code>while</code> loop:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                x = 0
+                while x < 3:
+                    print(x)
+                    x += 1
+            </code></pre>
             <dt>Each execution of the code, during the loop, is called an <span class="note">iteration</span>!</dt>
         </dl>
     </section>
@@ -116,7 +131,7 @@
             4
             5
         </code></pre>
-        <p class="note">This is just a simple example. For fixed numbers of times loops, it is better to user <code>for</code> with <code>range</code> loop, which will be discussed next</p>
+        <p class="note">This is just a simple example. For fixed numbers of times loops, it is better to use <code>for</code> with <code>range</code> loop, which will be discussed next</p>
     </section>
     <section><h3>Example: endless loop (find the problem)</h3>
         <p class="note">If you run next code, your Python will run an endless loop. Use <kbd>CTRL+C</kbd> or <kbd>CTRL+Z</kbd> to stop it</p>
@@ -293,10 +308,6 @@
                 # 7 8 9
             </code></pre>
         </dl>
-
-        <!-- <dl class="fa">
-            <dt class="note">More examples and real-world usage of the <code>for</code> statement will be shown in <a href="/ProgressBG-Python-Slides/pages/themes/beginners/sequenceDataTypes/sequenceDataTypes.html">Sequence data types</a> theme!</dt>
-        </dl> -->
     </section>
 </section>
 
