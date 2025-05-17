@@ -7,6 +7,7 @@
 # |       456|456       |
 # |==========|==========|
 
-# separator = "="
-# print(f"|{separator*10}|{separator*10}|")
-# print(f"|{1:>10}")
+# Solution (must be finished):
+separator = "="
+print(f"|{separator*10}|{separator*10}|")
+print(f"|{1:>10}")
